@@ -18954,6 +18954,29 @@ PrefabInstance:
       propertyPath: rotationSensibility
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 3816765554677085513, guid: 2773807bfc5d41542ba9ab9a6468c586,
+        type: 3}
+      propertyPath: startingWeapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816765554677085513, guid: 2773807bfc5d41542ba9ab9a6468c586,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 790232543238721100, guid: 33d156ccbf0cdcc4881bf1a92306231c,
+        type: 3}
+    - target: {fileID: 3816765554677085513, guid: 2773807bfc5d41542ba9ab9a6468c586,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 790232543238721100, guid: 57a5cf918bf4fd44fa800579b4b2f82e,
+        type: 3}
+    - target: {fileID: 3816765554677085513, guid: 2773807bfc5d41542ba9ab9a6468c586,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 6971120961312762624, guid: ba80dcb7c2c81fc49ab409f8d0359d63,
+        type: 3}
     - target: {fileID: 5905599096287433852, guid: 2773807bfc5d41542ba9ab9a6468c586,
         type: 3}
       propertyPath: m_Name
