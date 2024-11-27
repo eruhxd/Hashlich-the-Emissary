@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 2308969861732882509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -293,11 +293,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1715738036428168611}
-  gravityScale: -20
-  walkSpeed: 7
-  runSpeed: 9
-  rotationSensibility: 200
-  jumpHeight: 2
+  gravityScale: -40
+  walkSpeed: 20
+  runSpeed: 25
+  airControlFactor: 1
+  rotationSensibility: 300
+  jumpHeight: 2.5
 --- !u!114 &3816765554677085513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWeapons:
+  - {fileID: 790232543238721100, guid: 33d156ccbf0cdcc4881bf1a92306231c, type: 3}
   - {fileID: 790232543238721100, guid: 57a5cf918bf4fd44fa800579b4b2f82e, type: 3}
   - {fileID: 6971120961312762624, guid: ba80dcb7c2c81fc49ab409f8d0359d63, type: 3}
   weaponParentSocket: {fileID: 2507950968441511255}

@@ -37,6 +37,10 @@ public class PlayerWeaponController : MonoBehaviour
         {
             SwitchWeapon(1);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchWeapon(2);
+        }
     }
 
     private void SwitchWeapon(int p_weaponIndex)
@@ -45,7 +49,8 @@ public class PlayerWeaponController : MonoBehaviour
         {
             weaponSlots[i].gameObject.SetActive(false);
         }
-        if (p_weaponIndex != activeWeaponIndex && p_weaponIndex >= 0)
+
+        if ( p_weaponIndex >= 0)
         {
             weaponSlots[p_weaponIndex].gameObject.SetActive(true);
             activeWeaponIndex = p_weaponIndex;
