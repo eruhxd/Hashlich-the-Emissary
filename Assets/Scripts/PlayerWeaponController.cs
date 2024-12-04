@@ -41,6 +41,10 @@ public class PlayerWeaponController : MonoBehaviour
         {
             SwitchWeapon(2);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SwitchWeapon(3);
+        }
     }
 
     private void SwitchWeapon(int p_weaponIndex)
