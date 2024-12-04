@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2 -Shamayim.unity
     guid: d7ea8ef398a66df4cb481ad5a6d65f96
+  - enabled: 1
+    path: Assets/mENUS Y EXTRAS/LevelSelector/LevelSelector.unity
+    guid: 139b80667c38a1842a4d84039062e0ff
   m_configObjects: {}
