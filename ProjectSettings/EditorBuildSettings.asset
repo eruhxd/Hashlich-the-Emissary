@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/mENUS Y EXTRAS/LevelSelector/LevelSelector.unity
     guid: 139b80667c38a1842a4d84039062e0ff
+  - enabled: 1
+    path: Assets/mENUS Y EXTRAS/ending/ending.unity
+    guid: d70274ea47790354882c3a60d05cd7f2
   m_configObjects: {}
