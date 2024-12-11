@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8264664265925861314}
   - component: {fileID: 5184909045776904645}
   - component: {fileID: 1662870335534604525}
+  - component: {fileID: 2272591044736911846}
   m_Layer: 7
   m_Name: ENEMY01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4181637290073818885}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.6952795, z: -0, w: 0.71873957}
+  m_LocalRotation: {x: 0, y: 0.6952796, z: 0, w: 0.7187394}
   m_LocalPosition: {x: 43.97, y: 32.87, z: 16.38}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -172,3 +173,18 @@ NavMeshAgent:
   m_BaseOffset: 1.53
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2272591044736911846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181637290073818885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aa862023bd8ab45b96addba3ca88ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  damageAmount: 10
+  deathEffect: {fileID: 0}

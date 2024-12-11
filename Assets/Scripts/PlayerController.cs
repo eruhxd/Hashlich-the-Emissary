@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -36,6 +36,14 @@ public class PlayerController : MonoBehaviour
     public Transform playerGround;
     public float detectionDistance = 1.2f;
     public LayerMask lm;
+
+    // Variables para la vida y muerte
+    private int health = 3; // El jugador puede recibir hasta 3 golpes
+    private bool isDead = false; // Estado de muerte del jugador
+
+    // Posición inicial del jugador para el respawn
+    private Vector3 initialPosition;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -45,20 +53,22 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Guardamos la posición inicial del jugador para el respawn
+        initialPosition = transform.position;
     }
 
     private void Update()
     {
+        if (isDead) return; // Si el jugador está muerto, no puede moverse ni hacer nada
+
         Look();
         Move();
     }
 
     private void Move()
     {
-        
         isGrounded = characterController.isGrounded;
-
-       
 
         if (isGrounded)
         {
@@ -117,13 +127,10 @@ public class PlayerController : MonoBehaviour
 
         // Movimiento del CharacterController
         characterController.Move(moveInput * Time.deltaTime);
-
-        
     }
 
     private void FixedUpdate()
     {
-
         RaycastHit rci;
         bool hit = Physics.Raycast(playerGround.position, Vector3.down, out rci, detectionDistance, lm);
 
@@ -150,10 +157,64 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(-cameraVerticalAngle, 0f, 0f);
     }
 
-
-    private void OnCollisionStay(Collision collision)
+    // Esta función se activa cuando el jugador está tocando a un enemigo
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("C enter " + collision.gameObject.name);
+        if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Reducir la vida del jugador
+            health--;
+
+            // Mostrar mensaje de vida restante (opcional)
+            Debug.Log("Player Health: " + health);
+
+            // Si el jugador ha recibido 3 golpes, muere
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
     }
 
+    // Método para manejar la muerte del jugador
+    private void Die()
+    {
+        isDead = true; // El jugador está muerto
+        Debug.Log("Player died!");
+
+        // Aquí puedes agregar la lógica para la muerte, como reproducir una animación
+        // o desactivar al jugador
+        // Por ejemplo, desactivar al jugador:
+        // gameObject.SetActive(false); // Desactiva al jugador
+        // Time.timeScale = 0;
+
+        // Aquí también podrías añadir una animación de muerte o pantalla de Game Over
+        // Iniciar el respawn
+        Invoke("Respawn",1);
+    }
+
+    // Corutina que maneja el respawn
+    private void Respawn()
+    {
+        // Esperar unos segundos antes de respawnear al jugador (puedes ajustar este tiempo)
+        // yield return new WaitForSeconds(3f);
+
+        //Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        // Reposicionar al jugador en la posición inicial
+        transform.position = initialPosition;
+
+        // Restaurar salud
+        health = 3;
+
+        // Reactivar al jugador
+        gameObject.SetActive(true);
+
+        // Opcionalmente, reiniciar otras propiedades del jugador como su animación, si es necesario
+        isDead = false; // El jugador ya está vivo nuevamente
+        Debug.Log("Player respawned!");
+    }
 }
