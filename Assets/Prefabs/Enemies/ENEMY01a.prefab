@@ -185,6 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0aa862023bd8ab45b96addba3ca88ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   damageAmount: 10
   deathEffect: {fileID: 0}
